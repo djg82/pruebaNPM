@@ -1,3 +1,3 @@
-export function initialFunction () : string {
-    return 'Library'
+export function initialFunction (): string {
+    return "Library";
 }

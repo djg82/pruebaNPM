@@ -6,4 +6,4 @@ if [ ! -d "$1" ]; then
     exit
 fi
 yarn build || exit
-yes | cp -rf dist "$1/node_modules/@michelin/mech-care-api-layer/"
+yes | cp -rf dist "$1/node_modules/@djg/pruebanpm/"

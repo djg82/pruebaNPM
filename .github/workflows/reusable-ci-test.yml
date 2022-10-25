@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [ 14, 16, 18 ]
+        version: [ 14 ]
     steps:
     - uses: actions/checkout@v2
     - name: Set Node Version

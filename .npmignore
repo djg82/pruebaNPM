@@ -7,5 +7,5 @@ webpack.config.js
 jest.config.js
 deployToLocal.sh
 .eslintrc.json
-/github/
-/test/
+/.github/
+/tests/

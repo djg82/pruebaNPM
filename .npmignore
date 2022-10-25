@@ -1,6 +1,8 @@
 /src/
 webpack.config.js
-.eslintrc
+.eslintignore
 .gitignore
 .bablerc
 .idea
+jest.config.js
+deployToLocal.sh

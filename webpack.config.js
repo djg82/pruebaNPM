@@ -7,7 +7,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'index.js',
-		library: '@michelin/mech-care-api-layer',
+		library: '@djg82/pruebanpm',
 		libraryTarget: 'umd',
 		publicPath: '/build/',
 		umdNamedDefine: true
@@ -31,7 +31,7 @@ module.exports = {
 	},
 	plugins: [
 		new DtsBundleWebpack({
-			name: '@michelin/mech-care-api-layer',
+			name: '@djg82/pruebanpm',
 			main: 'src/index.d.ts',
 			out: '../index.d.ts',
 			removeSource: true,

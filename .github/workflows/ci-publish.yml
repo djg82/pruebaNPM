@@ -4,7 +4,7 @@ on:
   pull_request_target:
     branches: [main]
 jobs:
-  lintApp:
+  publish-npm:
     uses: ./.github/workflows/reusable-ci-publish.yml
     secrets:
       NPMAUTHTOKEN: ${{ secrets.NPMAUTHTOKEN }}

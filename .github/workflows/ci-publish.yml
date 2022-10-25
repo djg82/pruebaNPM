@@ -13,4 +13,4 @@ jobs:
       - run: yarn lint
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
+          token: ${{secrets.NPMAUTHTOKEN}}

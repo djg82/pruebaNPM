@@ -1,5 +1,4 @@
 on: push
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -8,6 +7,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 12
-      - uses: JS-DevTools/npm-publish@v1
+      - run: npm publish
         with:
           token: ${{ secrets.NPMAUTHTOKEN }}

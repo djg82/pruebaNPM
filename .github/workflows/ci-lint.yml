@@ -1,0 +1,10 @@
+name: CI - Lint App
+run-name: "${{ github.workflow }} - ${{ github.ref_name }}"
+on:
+  push:
+    branches: [ main ]
+jobs:
+  lintApp:
+    uses: ./.github/workflows/reusable-ci-lint.yml
+    secrets:
+      NPMAUTHTOKEN: ${{ secrets.NPMAUTHTOKEN }}

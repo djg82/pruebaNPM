@@ -1,0 +1,10 @@
+name: CI - Test App
+run-name: "${{ github.workflow }} - ${{ github.ref_name }}"
+on:
+  pull_request_target:
+    branches: [ main, release/*/main ]
+jobs:
+  testApp:
+    uses: ./.github/workflows/reusable-ci-test.yml
+    secrets:
+      NPMAUTHTOKEN: ${{ secrets.NPMAUTHTOKEN }}

@@ -1,0 +1,65 @@
+{
+  "plugins": ["import", "eslint-comments"],
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "no-continue": 0,
+    "no-plusplus": 0,
+    "eslint-comments/no-unused-disable": "error",
+    "import/no-unresolved": 0,
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "no-return-await": "error",
+    "no-return-assign": "error",
+    "eqeqeq": "error",
+    "import/no-extraneous-dependencies": 0,
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": "error",
+    "import/prefer-default-export": 0,
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline"
+    }],
+    "object-curly-spacing": ["error", "always"],
+    "space-in-parens": "error",
+    "space-before-blocks": "error",
+    "space-before-function-paren": "error",
+    "space-unary-ops": "error",
+    "space-infix-ops": "error",
+    "keyword-spacing": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "lines-between-class-members": 0,
+    "max-len": ["error", {"code": 160, "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"}],
+    "no-trailing-spaces": "error",
+    "import/no-cycle": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false,
+      "varsIgnorePattern": "^_",
+      "argsIgnorePattern": "^_"
+    }],
+    "no-shadow": "warn",
+    "no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false,
+      "varsIgnorePattern": "^_",
+      "argsIgnorePattern": "^_"
+    }]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js", ".jsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "env": {
+    "browser": true
+  }
+}

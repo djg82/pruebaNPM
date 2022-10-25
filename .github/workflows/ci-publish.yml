@@ -1,7 +1,8 @@
 name: CI - Publish
 run-name: "${{ github.workflow }} - ${{ github.ref_name }}"
-pull_request_target:
-  branches: [ main ]
+on:
+  pull_request_target:
+    branches: [main]
 
 jobs:
   publish-npm:

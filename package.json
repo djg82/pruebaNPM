@@ -1,28 +1,27 @@
 {
-  "name": "@michelin/mech-care-api-layer",
+  "name": "@djg82/pruebanpm",
   "version": "0.0.2",
-  "description": "Library for typing BE / FE communication for Mechanical Care",
+  "description": "prueba publish",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "restricted"
   },
   "author": {
     "name": "Diego Geringer",
-    "email": "diego.geringer_ext@michellin.com"
+    "email": "geringerdiego@hotmail.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Michelin-Service-Solutions/mech-care-api-layer.git"
+    "url": "https://github.com/djg82/pruebaNPM/mech-care-api-layer.git"
   },
   "bugs": {
-    "url": "https://github.com/Michelin-Service-Solutions/mech-care-api-layer/issues"
+    "url": "https://github.com/djg82/pruebaNPM/mech-care-api-layer/issues"
   },
-  "homepage": "https://github.com/Michelin-Service-Solutions/mech-care-api-layer#readme",
+  "homepage": "https://github.com/djg82/pruebaNPM/mech-care-api-layer#readme",
   "keywords": [
     "ui",
-    "typing",
-    "michelin"
+    "typing"
   ],
   "scripts": {
     "build": "tsc",

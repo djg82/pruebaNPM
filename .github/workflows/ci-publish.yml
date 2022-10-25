@@ -1,8 +1,9 @@
 name: CI - Publish
 run-name: "${{ github.workflow }} - ${{ github.ref_name }}"
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - '*'
 jobs:
   publish-npm:
     uses: ./.github/workflows/reusable-ci-publish.yml

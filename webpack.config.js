@@ -7,7 +7,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'index.js',
-		library: '@djg82/pruebanpm',
+		library: '@djg82/pruebanpmdjg.',
 		libraryTarget: 'umd',
 		publicPath: '/build/',
 		umdNamedDefine: true
@@ -31,7 +31,7 @@ module.exports = {
 	},
 	plugins: [
 		new DtsBundleWebpack({
-			name: '@djg82/pruebanpm',
+			name: '@djg82/pruebanpmdjg.',
 			main: 'src/index.d.ts',
 			out: '../index.d.ts',
 			removeSource: true,

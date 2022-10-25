@@ -2,7 +2,7 @@ import { initialFunction } from '../src/index'
 
 test('Test Example', () => {
     const test = initialFunction();
-    expect(test).toBe('Fail');
+    expect(test).toBe('Library');
 })
 
 

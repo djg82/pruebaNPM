@@ -1,7 +1,7 @@
 {
   "name": "@djg82/pruebanpm",
   "version": "0.0.2",
-  "description": "Library for typing BE / FE communication for Mechanical Care",
+  "description": "prueba publish",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "restricted"
@@ -21,8 +21,7 @@
   "homepage": "https://github.com/djg82/pruebaNPM/mech-care-api-layer#readme",
   "keywords": [
     "ui",
-    "typing",
-    "michelin"
+    "typing"
   ],
   "scripts": {
     "build": "tsc",

@@ -1,10 +1,10 @@
 {
-  "name": "@djg82/pruebanpm",
+  "name": "@djg82/pruebanpmdjg.",
   "version": "0.0.2",
   "description": "prueba publish",
   "main": "dist/index.js",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "author": {
     "name": "Diego Geringer",
@@ -13,12 +13,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/djg82/pruebaNPM/mech-care-api-layer.git"
+    "url": "https://github.com/djg82/pruebaNPM.git"
   },
   "bugs": {
-    "url": "https://github.com/djg82/pruebaNPM/mech-care-api-layer/issues"
+    "url": "https://github.com/djg82/pruebaNPM/issues"
   },
-  "homepage": "https://github.com/djg82/pruebaNPM/mech-care-api-layer#readme",
+  "homepage": "https://github.com/djg82/pruebaNPM#readme",
   "keywords": [
     "ui",
     "typing"

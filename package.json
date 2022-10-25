@@ -1,6 +1,6 @@
 {
   "name": "@djg82/pruebanpmdjg.",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "prueba publish",
   "main": "dist/index.js",
   "publishConfig": {

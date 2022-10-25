@@ -1,16 +1,15 @@
 on: push
 
 jobs:
-  publish:
-    needs: build
+  publish-npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
-      - run: yarn
-      - run: yarn build
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPMAUTHTOKEN }}
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{NPMAUTHTOKEN}}

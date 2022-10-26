@@ -14,14 +14,11 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - name: Install modules
-        run: yarn
-      - name: Build
-        run: yarn build
-      - name: Publish 
-        run: yarn publish
-          env:
-            NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
+      - run: yarn
+      - run: yarn build
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
   tag:
     needs: publish-npm
     runs-on: ubuntu-latest

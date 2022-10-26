@@ -9,25 +9,25 @@ jobs:
   comptag:
     runs-on: ubuntu-latest
     steps:
-  - uses: actions/checkout@v2
-    with:
-      fetch-depth: 0
-  - name: Get version and tag
-    run: |
-      version=$(node -p "require('./package.json').version")
-      echo "CURRENT_VERSION=$version" >> $GITHUB_ENV
-      echo "LATEST_TAG=$(git describe --tag --abbrev=0 | cut -c 2-)" >> $GITHUB_ENV
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get version and tag
+        run: |
+          version=$(node -p "require('./package.json').version")
+          echo "CURRENT_VERSION=$version" >> $GITHUB_ENV
+          echo "LATEST_TAG=$(git describe --tag --abbrev=0 | cut -c 2-)" >> $GITHUB_ENV
 
-  - name: PR version is invalid
-    if: ${{ env.CURRENT_VERSION <= env.LATEST_TAG }}
-    run: |
-      echo "Error: Same version found. Please update version in package.json"
-      exit 1 
+      - name: PR version is invalid
+        if: ${{ env.CURRENT_VERSION <= env.LATEST_TAG }}
+        run: |
+          echo "Error: Same version found. Please update version in package.json"
+          exit 1 
 
-  - name: PR version is valid
-    if: ${{ env.CURRENT_VERSION != env.LATEST_TAG }}
-    run: |
-      echo "New taga has been published"
+      - name: PR version is valid
+        if: ${{ env.CURRENT_VERSION != env.LATEST_TAG }}
+        run: |
+          echo "New taga has been published"
   publish-npm:
     needs: comptag
     runs-on: ubuntu-latest

@@ -6,21 +6,7 @@ on:
       NPMAUTHTOKEN:
         required: true
 jobs:
-  publish-npm:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn build
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
   tagging:
-    needs: publish-npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +19,7 @@ jobs:
       - name: Retrieve version number
         id: version
         run: |
-          echo "number=$(cat package.json | jq -r '.version')" >> $GITHUB_OUTPUT
+          echo "number=v{$(cat package.json | jq -r '.version')}" >> $GITHUB_OUTPUT
       - uses: actions/github-script@v6
         with:
           script: |
@@ -43,3 +29,17 @@ jobs:
               ref: "refs/tags/${{steps.version.outputs.number}}",
               sha: context.sha
             })
+  publish-npm:
+    needs: tagging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: yarn
+      - run: yarn build
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}

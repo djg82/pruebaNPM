@@ -1,3 +1,3 @@
 export function initialFunction4 (): string {
-        return "Library4";
+    return "Library4";
 }

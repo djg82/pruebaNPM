@@ -17,5 +17,5 @@ test('Test Example3', () => {
 
 test('Test Example4', () => {
     const test = initialFunction4();
-    expect(test).toBe('LibraryCuatro');
+    expect(test).toBe('Library4');
 })

@@ -21,7 +21,7 @@ jobs:
           branch=${GITHUB_REF##*/}
           echo "${pkg_version}"
           echo "${branch}"
-          latest_tag=$({ github.ref_name })
+          latest_tag={ github.ref_name}
           echo "${latest_tag}"
   publish-npm:
     needs: checking

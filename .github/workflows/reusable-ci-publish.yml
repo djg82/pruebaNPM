@@ -7,7 +7,6 @@ on:
         required: true
 jobs:
   checking:
-    - name: Check PR version
       shell: bash
       run: |
         pr="$(jq -r '.version' < ./package.json)"

@@ -6,7 +6,7 @@ on:
       NPMAUTHTOKEN:
         required: true
 jobs:
-  checking:
+  tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,17 +21,16 @@ jobs:
           branch=${GITHUB_REF##*/}
           echo "${pkg_version}"
           echo "${branch}"
-      - env:
-          versionapp: ${pkg_version}
       - uses: actions/github-script@v5
         with:
           script: |
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'refs/tags/$versionapp',
+              ref: 'refs/tags/${{pkg_version}}',
               sha: context.sha
             })
+
 
   publish-npm:
     needs: checking

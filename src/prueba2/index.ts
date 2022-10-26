@@ -1,3 +1,3 @@
 export function initialFunction2 (): string {
-    return "Library2"
+    return "LibraryDos"
 }

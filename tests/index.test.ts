@@ -8,5 +8,5 @@ test('Test Example', () => {
 
 test('Test Example', () => {
     const test = initialFunction2();
-    expect(test).toBe('LibraryDos');
+    expect(test).toBe('Library2');
 })

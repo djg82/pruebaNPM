@@ -21,13 +21,15 @@ jobs:
           branch=${GITHUB_REF##*/}
           echo "${pkg_version}"
           echo "${branch}"
+      - env:
+          versionapp: ${pkg_version}
       - uses: actions/github-script@v5
         with:
           script: |
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'refs/tags/${$(cat package.json | jq -r '.version')}',
+              ref: 'refs/tags/$versionapp',
               sha: context.sha
             })
 

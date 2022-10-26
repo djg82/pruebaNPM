@@ -15,7 +15,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Set Node Version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
       - name: Add NPM Token

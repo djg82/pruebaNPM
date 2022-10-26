@@ -19,8 +19,8 @@ jobs:
       - name: Retrieve version number
         id: version
         run: |
-          echo ::set-output name=number::$(cat package.json | jq -r '.version')
-      - uses: actions/github-script@v5
+          echo "number=$(cat package.json | jq -r '.version')" >> $GITHUB_OUTPUT
+      - uses: actions/github-script@v6
         with:
           script: |
             github.rest.git.createRef({

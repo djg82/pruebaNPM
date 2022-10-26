@@ -21,13 +21,14 @@ jobs:
           branch=${GITHUB_REF##*/}
           echo "${pkg_version}"
           echo "${branch}"
+          echo ::set-output name=current-version::$pkg_version
       - uses: actions/github-script@v5
         with:
           script: |
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/${{pkg_version}}",
+              ref: "refs/tags/${{current-version}}",
               sha: context.sha
             })
   publish-npm:

@@ -6,7 +6,21 @@ on:
       NPMAUTHTOKEN:
         required: true
 jobs:
-  checking:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: yarn
+      - run: yarn build
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
+  tagging:
+      needs: publish-npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,17 +43,3 @@ jobs:
               ref: "refs/tags/${{steps.version.outputs.number}}",
               sha: context.sha
             })
-  publish-npm:
-    needs: checking
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn build
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}

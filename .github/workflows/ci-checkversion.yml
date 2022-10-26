@@ -1,0 +1,25 @@
+name: CI - Check Version App
+run-name: "${{ github.workflow }} - ${{ github.ref_name }}"
+on:
+  pull_request_target:
+    branches: [ main ]
+jobs:
+  comptag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get version and tag
+        run: |
+          echo "CURRENT_VERSION=$(cat package.json | jq -r '.version')" >> $GITHUB_ENV
+          echo "LATEST_TAG=$(git describe --tag --abbrev=0 | cut -c 2-)" >> $GITHUB_ENV
+      - name: Version and tag
+        run: |
+          echo "${{env.CURRENT_VERSION}}"
+          echo "${{env.LATEST_TAG}}"
+      - name: PR version is invalid
+        if: ${{ env.CURRENT_VERSION <= env.LATEST_TAG }}
+        run: |
+          echo "Error: Please update version in package.json"
+          exit 1 

@@ -30,7 +30,6 @@ jobs:
               ref: 'refs/tags/${pkg_version}',
               sha: context.sha
             })
-
   publish-npm:
     needs: checking
     runs-on: ubuntu-latest

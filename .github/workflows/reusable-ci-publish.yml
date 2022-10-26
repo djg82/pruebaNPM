@@ -21,7 +21,7 @@ jobs:
           branch=${GITHUB_REF##*/}
           echo "${pkg_version}"
           echo "${branch}"
-      -run: |
+      - run: |
           echo "latest_tag=$(git tag | sort --version-sort | tail -n1)"
   publish-npm:
     needs: checking

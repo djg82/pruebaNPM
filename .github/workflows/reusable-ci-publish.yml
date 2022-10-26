@@ -17,11 +17,11 @@ jobs:
           version=$(node -p "require('./package.json').version")
           echo "CURRENT_VERSION=$version" >> $GITHUB_ENV
           echo "LATEST_TAG=$(git describe --tag --abbrev=0 | cut -c 2-)" >> $GITHUB_ENV
-      - name: version and tag
+      - name: Version and tag
         run: |
           echo "${{env.CURRENT_VERSION}}"
           echo "${{env.LATEST_TAG}}"
-        - name: PR version is invalid
+      - name: PR version is invalid
         if: ${{ env.CURRENT_VERSION <= env.LATEST_TAG }}
         run: |
           echo "Error: Same version found. Please update version in package.json"

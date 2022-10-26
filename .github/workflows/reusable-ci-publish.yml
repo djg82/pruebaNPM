@@ -19,7 +19,7 @@ jobs:
       - name: PR version is invalid
           echo "${{env.CURRENT_VERSION}}"
           echo "${{env.LATEST_TAG}}"
-        if: ${{ env.CURRENT_VERSION = env.LATEST_TAG }}
+        if: ${{ env.CURRENT_VERSION <= env.LATEST_TAG }}
         run: |
           echo "Error: Same version found. Please update version in package.json"
           exit 1 

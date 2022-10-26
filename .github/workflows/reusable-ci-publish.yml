@@ -19,7 +19,7 @@ jobs:
       - name: Retrieve version number
         id: version
         run: |
-          echo "number=v{$(cat package.json | jq -r '.version')}" >> $GITHUB_OUTPUT
+          echo "number=v$(cat package.json | jq -r '.version')" >> $GITHUB_OUTPUT
       - uses: actions/github-script@v6
         with:
           script: |

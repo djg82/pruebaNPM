@@ -6,7 +6,17 @@ on:
       NPMAUTHTOKEN:
         required: true
 jobs:
+  checking:
+    - name: Check PR version
+      shell: bash
+      run: |
+        pr="$(jq -r '.version' < ./package.json)"
+        # get my latest version
+        # modify this with your own style
+        latest="$(git describe --tag --abbrev=0)"
+        php -r 'if(version_compare("'"$pr"'","'"$latest"'",">")){exit(0);};exit(1);'
   publish-npm:
+    needs: checking
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,4 +37,3 @@ jobs:
       - uses: Klemensas/action-autotag@stable
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          tag_prefix: "v"

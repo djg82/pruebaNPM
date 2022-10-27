@@ -40,8 +40,8 @@ jobs:
         run: yarn build
       - name: publish
         run: yarn publish
-          env:
-            NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKEN}}
   tagging:
     needs: publish-npm
     runs-on: ubuntu-latest

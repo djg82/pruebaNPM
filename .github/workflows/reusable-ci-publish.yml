@@ -33,6 +33,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
+          registry-url: https://registry.npmjs.org/
       - name: Install modules
         run: yarn
       - name: Build
@@ -49,7 +50,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-          registry-url: https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Retrieve version number
